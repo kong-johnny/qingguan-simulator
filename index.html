@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>清官模拟器</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="game-panel">
+        <header class="topbar">
+          <div>
+            <p class="kicker">正确政绩观学习互动</p>
+            <h1>清官模拟器</h1>
+          </div>
+          <button class="ghost-button" id="restartTop" type="button">重开</button>
+        </header>
+
+        <section class="scene" aria-live="polite">
+          <div class="status-line">
+            <span id="termLabel">第 1 年 春</span>
+            <span id="roleLabel">岗位待定</span>
+          </div>
+
+          <div id="startScreen" class="start-screen">
+            <h2>到任第一天，桌上摆着三样东西。</h2>
+            <p>一本群众来信，一份招商简报，一张家人发来的晚饭照片。四年任期很短，真实问题很硬，每一次“办实事”都要付出时间、资金、精力和陪伴。</p>
+            <div class="role-grid" id="roleGrid"></div>
+          </div>
+
+          <div id="playScreen" class="play-screen hidden">
+            <div class="event-meta">
+              <span id="eventTag">事件</span>
+              <span id="eventPressure">压力</span>
+            </div>
+            <h2 id="eventTitle"></h2>
+            <p id="eventText"></p>
+            <div class="choice-list" id="choiceList"></div>
+          </div>
+
+          <div id="resultScreen" class="result-screen hidden">
+            <p class="kicker">任期评价</p>
+            <h2 id="endingTitle"></h2>
+            <p id="endingText"></p>
+            <div id="endingBadges" class="badges"></div>
+            <button class="primary-button" id="restartEnd" type="button">再任一届</button>
+          </div>
+        </section>
+      </section>
+
+      <aside class="dashboard" aria-label="游戏状态">
+        <section class="stat-card">
+          <div class="card-title">任期账本</div>
+          <div class="meters" id="meters"></div>
+        </section>
+
+        <section class="stat-card">
+          <div class="card-title">资源余量</div>
+          <div class="resources" id="resources"></div>
+        </section>
+
+        <section class="stat-card">
+          <div class="card-title">履职记录</div>
+          <ol class="log-list" id="logList"></ol>
+        </section>
+      </aside>
+    </main>
+
+    <div class="modal-backdrop hidden" id="incidentModal" role="dialog" aria-modal="true" aria-labelledby="incidentTitle">
+      <div class="incident-card">
+        <p class="kicker" id="incidentKicker">意外事件</p>
+        <h2 id="incidentTitle"></h2>
+        <p id="incidentText"></p>
+        <div id="incidentEffect" class="incident-effect"></div>
+        <button class="primary-button" id="incidentClose" type="button">继续履职</button>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

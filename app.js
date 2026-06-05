@@ -255,6 +255,246 @@ const events = [
       { label: "照本宣科，材料留痕", note: "台账齐了，思想没动。", cost: { energy: 2 }, effect: { discipline: 5, reputation: -4, quality: -2 }, hiddenRisk: 5, log: "学习教育停留在留痕层面。" },
     ],
   },
+  {
+    stage: "early",
+    tag: "信访",
+    pressure: "积案初现",
+    title: "一封十年前的信访件又被翻出来",
+    text: "来访人材料厚厚一摞，前几任都说情况复杂。你刚到任，完全可以先按程序转办。",
+    choices: [
+      { label: "约来访人和承办部门当面核账", note: "很耗时间，但能看见问题根子。", cost: { energy: 11, family: 4 }, effect: { people: 8, reputation: 7, network: 4, discipline: -3 }, log: "把信访积案摆到桌面上逐项核账。" },
+      { label: "先调阅档案，列入季度台账", note: "稳妥推进，不轻易承诺。", cost: { energy: 6 }, effect: { people: 3, reputation: 3, quality: 2 }, log: "调阅信访档案，列入季度台账。" },
+      { label: "按程序转办，要求限期答复", note: "流程完整，但群众会觉得你没接住。", cost: { capital: 1 }, effect: { people: -4, reputation: -4, discipline: 2 }, hiddenRisk: 5, log: "积案被转办，来访人失望离开。" },
+    ],
+  },
+  {
+    stage: "early",
+    tag: "预算",
+    pressure: "开年盘子",
+    title: "各部门都来争取第一笔预算",
+    text: "宣传、城建、民政、农业都说自己最急。你若不尽快定盘子，很多工作会卡住。",
+    choices: [
+      { label: "按急难愁盼重新排优先级", note: "会得罪几个部门，但钱要跟着问题走。", cost: { energy: 9, capital: 5 }, effect: { people: 8, finance: 3, reputation: 5, network: -2 }, log: "按群众急难重新安排开年预算。" },
+      { label: "保基本盘，预留机动资金", note: "不冒进，后面有余地。", cost: { energy: 5 }, effect: { finance: 6, reputation: 2, capital: 2 }, log: "开年预算保基本盘并预留机动。" },
+      { label: "谁催得急先给谁", note: "眼前少冲突，长期会乱。", cost: { funds: 6 }, effect: { finance: -5, reputation: -5, discipline: 3 }, hiddenRisk: 5, log: "预算按催办压力分配，埋下失衡隐患。" },
+    ],
+  },
+  {
+    stage: "early",
+    tag: "村情",
+    pressure: "熟人社会",
+    title: "几个村干部暗示可以帮你把场面撑起来",
+    text: "他们熟悉基层，也有自己的小算盘。你需要他们支持，但不能被他们带着走。",
+    choices: [
+      { label: "逐村走访，群众和干部两头听", note: "慢，但不会只听一边。", cost: { energy: 12, family: 5 }, effect: { people: 7, network: 6, reputation: 5, discipline: -2 }, log: "逐村走访，交叉核实村情。" },
+      { label: "先请村干部梳理问题清单", note: "效率高，但要防信息过滤。", cost: { energy: 5 }, effect: { network: 7, quality: 2, people: 1 }, log: "请村干部先梳理问题清单。" },
+      { label: "依靠几个能人快速打开局面", note: "看似顺手，容易被关系绑住。", cost: { capital: 2 }, effect: { network: 10, discipline: 5, reputation: -3 }, hiddenRisk: 8, log: "依靠熟人能人快速推进，边界开始变模糊。" },
+    ],
+  },
+  {
+    stage: "early",
+    tag: "窗口",
+    pressure: "办事体验",
+    title: "办事大厅排队长但投诉少",
+    text: "窗口负责人说群众习惯了，没必要大动干戈。你现场看了半小时，发现老人填表很吃力。",
+    choices: [
+      { label: "重排流程，增设帮办岗", note: "要调人调班，群众马上能感受到。", cost: { funds: 8, energy: 9 }, effect: { people: 10, quality: 5, reputation: 5 }, log: "办事大厅增设帮办岗并重排流程。" },
+      { label: "先做高峰期志愿服务", note: "成本较低，但不是根本改革。", cost: { energy: 5, network: 2 }, effect: { people: 4, reputation: 3 }, log: "高峰期安排志愿帮办。" },
+      { label: "先观察一个月再说", note: "看似稳，群众继续排队。", cost: {}, effect: { people: -4, reputation: -3 }, hiddenRisk: 4, log: "办事大厅问题继续观察，群众等待没有减少。" },
+    ],
+  },
+  {
+    stage: "early",
+    tag: "学习",
+    pressure: "开局立规",
+    title: "班子会上有人建议少讲纪律多讲发展",
+    text: "大家都想快点把项目跑起来。你知道发展重要，但开局规矩不立，后面会越来越难管。",
+    choices: [
+      { label: "把纪律边界和发展任务一起讲清", note: "不空谈纪律，也不放松底线。", cost: { energy: 6, capital: 2 }, effect: { discipline: -7, reputation: 4, quality: 2 }, risk: -3, log: "班子会同步明确发展任务和纪律边界。" },
+      { label: "先讲发展，纪律放到专题会上", note: "节奏更柔和，但力度弱一点。", cost: { energy: 3 }, effect: { quality: 3, capital: 2, discipline: -1 }, log: "先部署发展任务，纪律专题后置。" },
+      { label: "默认大家心里有数", note: "最大的风险常常来自这种默认。", cost: {}, effect: { quality: 2, discipline: 5, reputation: -3 }, hiddenRisk: 6, log: "开局没有明确纪律边界。" },
+    ],
+  },
+  {
+    stage: "middle",
+    tag: "攻坚",
+    pressure: "机会窗口",
+    title: "省级试点名额只剩一个",
+    text: "试点如果拿下，能争取资金和政策；但申报材料必须建立在真实基础上，不能只靠包装。",
+    choices: [
+      { label: "拿真实短板申报，争取问题导向试点", note: "不够光鲜，但可能拿到真正支持。", cost: { energy: 12, capital: 5, network: 4 }, effect: { quality: 9, reputation: 8, people: 5, discipline: -3 }, log: "按真实短板申报省级试点。" },
+      { label: "突出已有成绩，弱化困难", note: "更像申报材料，但实情少了一块。", cost: { energy: 7, network: 3 }, effect: { quality: 6, capital: 5, reputation: 1 }, hiddenRisk: 4, log: "申报材料突出成绩，弱化困难。" },
+      { label: "找熟人打招呼，先拿名额", note: "机会可能来了，风险也来了。", cost: { network: 8, family: 3 }, effect: { capital: 8, quality: 5, discipline: 10, reputation: -5 }, hiddenRisk: 16, chance: { p: 0.38, pass: "关系运作暂时有效，试点名额落下来了。", fail: "申报过程被质疑不透明，试点资格暂停。" }, log: "试图通过关系争取试点名额。" },
+    ],
+  },
+  {
+    stage: "middle",
+    tag: "产业",
+    pressure: "群众增收",
+    title: "合作社想扩大种植但销路没底",
+    text: "群众希望增收，企业承诺包销却只愿口头保证。盲目扩大可能丰产不丰收。",
+    choices: [
+      { label: "先签保底订单，再小规模扩种", note: "慢一点，但不让群众赌身家。", cost: { energy: 10, network: 5 }, effect: { people: 9, quality: 6, reputation: 6, finance: 1 }, log: "推动保底订单后小规模扩种。" },
+      { label: "政府补贴一季，边做边找销路", note: "能启动，但财政和市场都吃压。", cost: { funds: 12, energy: 6 }, effect: { people: 5, quality: 6, finance: -6 }, delayed: { finance: -4 }, log: "用补贴启动合作社扩种。" },
+      { label: "包装成示范产业大面积铺开", note: "场面很热，风险也很大。", cost: { funds: 16, energy: 4 }, effect: { quality: 8, capital: 6, finance: -10, discipline: 5, reputation: -5 }, hiddenRisk: 10, log: "示范产业大面积铺开，销路风险未解。" },
+    ],
+  },
+  {
+    stage: "middle",
+    tag: "教育",
+    pressure: "资源分配",
+    title: "学校操场破损，汇报片也要拍",
+    text: "孩子们雨天没法上体育课。拍摄团队建议先把校门口和荣誉墙修好，镜头效果更好。",
+    choices: [
+      { label: "先修操场和排水", note: "镜头不华丽，但孩子天天受益。", cost: { funds: 13, energy: 6 }, effect: { people: 10, reputation: 8, quality: 3 }, log: "学校操场和排水先行改造。" },
+      { label: "操场小修，校门同步美化", note: "兼顾展示，但实用效果打折。", cost: { funds: 12, energy: 5 }, effect: { people: 4, capital: 3, reputation: 1, finance: -3 }, log: "操场小修，校门美化同步推进。" },
+      { label: "先拍片，后面再说", note: "孩子们会记得这个选择。", cost: { funds: 5 }, effect: { capital: 4, people: -7, reputation: -7, discipline: 4 }, hiddenRisk: 5, log: "优先拍摄汇报片，操场问题后延。" },
+    ],
+  },
+  {
+    stage: "middle",
+    tag: "医疗",
+    pressure: "急难愁盼",
+    title: "卫生院夜间急诊缺人",
+    text: "偏远片区夜间看病难，补齐排班要增加经费，还要说服医生轮值。",
+    choices: [
+      { label: "补贴夜班，建转诊联动", note: "成本不低，但急病等不起。", cost: { funds: 14, energy: 8 }, effect: { people: 12, reputation: 8, finance: -4, quality: 3 }, log: "卫生院夜诊和转诊联动启动。" },
+      { label: "先买设备，排班慢慢谈", note: "设备可见，服务未必跟上。", cost: { funds: 10, energy: 4 }, effect: { quality: 4, people: 2, finance: -3 }, log: "先采购设备，夜间服务仍不稳定。" },
+      { label: "要求卫生院自行克服", note: "不花钱，但问题留在群众身上。", cost: { capital: 1 }, effect: { people: -8, reputation: -6, discipline: 2 }, hiddenRisk: 4, log: "要求卫生院自行克服，夜诊缺口未补。" },
+    ],
+  },
+  {
+    stage: "middle",
+    tag: "城建",
+    pressure: "拆违碰硬",
+    title: "一处违建背后牵着多个熟人",
+    text: "群众反映多年，违建占了消防通道。拆，关系上会难看；不拆，安全账没人替你背。",
+    choices: [
+      { label: "依法拆除并公开依据", note: "得罪人，但消防通道必须畅通。", cost: { energy: 10, network: 6, capital: 3 }, effect: { people: 9, discipline: -5, reputation: 7, quality: 3 }, log: "依法拆除占用消防通道的违建。" },
+      { label: "先约谈整改，限期自拆", note: "留缓冲，也留监督压力。", cost: { energy: 7, capital: 2 }, effect: { people: 4, reputation: 3, discipline: -2 }, log: "约谈违建业主限期自拆。" },
+      { label: "暂缓处理，避免激化矛盾", note: "矛盾没激化，风险也没消失。", cost: {}, effect: { people: -6, discipline: 5, reputation: -5 }, delayed: { discipline: 5, people: -4 }, hiddenRisk: 9, log: "违建问题暂缓处理。" },
+    ],
+  },
+  {
+    stage: "middle",
+    tag: "考察",
+    pressure: "推荐人选",
+    title: "一个能干的干部也有不少争议",
+    text: "他推进项目很有办法，但群众说他脾气硬、听不进意见。推荐他会见效快，也可能放大作风问题。",
+    choices: [
+      { label: "先压担子也设监督边界", note: "用其所长，也管住风险。", cost: { energy: 8, capital: 3 }, effect: { quality: 6, reputation: 4, discipline: -2, network: 3 }, log: "给争议干部压担子并设置监督边界。" },
+      { label: "安排到攻坚专班试用", note: "先观察，不急着定性。", cost: { energy: 5 }, effect: { quality: 4, capital: 2 }, log: "安排争议干部到攻坚专班试用。" },
+      { label: "只看业绩，直接重用", note: "短期冲得快，作风风险也快。", cost: { capital: 2 }, effect: { quality: 8, discipline: 7, people: -4, reputation: -3 }, hiddenRisk: 8, log: "直接重用争议干部，作风风险升高。" },
+    ],
+  },
+  {
+    stage: "late",
+    tag: "退休前",
+    pressure: "老关系回头",
+    title: "多年老朋友说想在你离任前办件事",
+    text: "他说不是大事，只是一个手续能不能快点。你知道越到最后，越有人试探边界。",
+    choices: [
+      { label: "按程序办，并把请求记录下来", note: "不给最后一公里留下口子。", cost: { energy: 4, capital: 1 }, effect: { discipline: -9, reputation: 5 }, log: "将老朋友请托按程序记录处理。" },
+      { label: "提醒他材料齐全就正常办", note: "保留情面，也守住流程。", cost: { energy: 3 }, effect: { discipline: -4, reputation: 2 }, log: "提醒老朋友按材料清单正常办理。" },
+      { label: "最后帮一次，算还人情", note: "晚节往往就毁在'最后一次'。", cost: { network: 2 }, effect: { discipline: 16, reputation: -8, capital: -4 }, hiddenRisk: 22, chance: { p: 0.32, pass: "手续顺利办完，没有马上起波澜。", fail: "同类申请人质疑插队，线索被提交。" }, log: "替老朋友加快手续办理。" },
+    ],
+  },
+  {
+    stage: "late",
+    tag: "荣誉",
+    pressure: "评先评优",
+    title: "上面征求先进典型材料",
+    text: "材料组想把几个未完成项目写成已完成。你确实做了很多事，但还没到能盖棺定论的时候。",
+    choices: [
+      { label: "只写已完成的，未完成讲进展", note: "不把半成品写成成绩。", cost: { capital: 4 }, effect: { discipline: -8, reputation: 7 }, log: "先进材料如实区分完成和推进中事项。" },
+      { label: "把表述写得稳一点", note: "留有余地，但仍有包装。", cost: { energy: 3 }, effect: { capital: 3, reputation: 1, discipline: 2 }, hiddenRisk: 3, log: "先进材料采用模糊表述。" },
+      { label: "照顾整体效果，先写圆满", note: "看起来完美，最怕有人认真核。", cost: {}, effect: { capital: 6, discipline: 12, reputation: -5 }, hiddenRisk: 16, chance: { p: 0.42, pass: "材料顺利上报，没有被追问细节。", fail: "未完项目被现场核验，材料被要求退回。" }, log: "把未完项目写成圆满完成。" },
+    ],
+  },
+  {
+    stage: "late",
+    tag: "交接",
+    pressure: "后任将至",
+    title: "继任者想提前了解真实账本",
+    text: "有些问题说出来会影响你的任期观感，不说出来后任可能踩坑。",
+    choices: [
+      { label: "把成绩、问题、风险都交清楚", note: "功劳少一点，后劲稳一点。", cost: { energy: 7, capital: 2 }, effect: { reputation: 8, discipline: -5, quality: 3 }, log: "向继任者完整交接真实账本。" },
+      { label: "先交重点问题，细账后续补", note: "不算遮掩，但还不彻底。", cost: { energy: 4 }, effect: { reputation: 3, quality: 2 }, log: "向继任者交接重点问题清单。" },
+      { label: "只交成绩台账，问题留给后面", note: "体面退场，后续难看。", cost: {}, effect: { reputation: -8, discipline: 6, capital: 3 }, delayed: { reputation: -8, discipline: 5 }, hiddenRisk: 12, log: "交接时只突出成绩，隐去风险。" },
+    ],
+  },
+  {
+    stage: "late",
+    tag: "身体",
+    pressure: "长期透支",
+    title: "体检报告提示几个指标亮红灯",
+    text: "医生说再这样熬下去不行。可收官任务还压着，很多人等你拍板。",
+    choices: [
+      { label: "调整节奏，授权班子分担", note: "不是退缩，是让系统能运转。", cost: { capital: 4 }, effect: { energy: 10, family: 5, quality: 2, reputation: 2 }, risk: -2, log: "调整节奏并授权班子分担任务。" },
+      { label: "只减少非必要会议", note: "能缓一点，但压力还在。", cost: { energy: 2 }, effect: { energy: 5, family: 2 }, log: "压缩非必要会议，稍微恢复状态。" },
+      { label: "硬扛到任期结束", note: "意志很硬，身体未必答应。", cost: { energy: 10, family: 5 }, effect: { reputation: 4, energy: -8 }, hiddenRisk: 4, chance: { p: 0.35, pass: "你硬撑过这一阵，但明显慢了下来。", fail: "你在连续会议后病倒，几项工作被迫延期。" }, log: "继续硬扛收官任务。" },
+    ],
+  },
+  {
+    stage: "late",
+    tag: "债务",
+    pressure: "收尾付款",
+    title: "几个项目的尾款集中到期",
+    text: "项目都能说出意义，但财政支付压力是真的。有人建议先拖供应商，账面就好看了。",
+    choices: [
+      { label: "压减新开支，按合同支付", note: "不潇洒，但守信用。", cost: { funds: 15, energy: 6 }, effect: { finance: 3, reputation: 6, discipline: -3, quality: 2 }, log: "压减新开支，按合同支付项目尾款。" },
+      { label: "协商分期，公开说明原因", note: "难看但透明。", cost: { energy: 7, capital: 3 }, effect: { finance: 2, reputation: 3 }, log: "与供应商协商分期并公开说明。" },
+      { label: "先拖着，任期内账面别难看", note: "账不会消失，只会换人背。", cost: {}, effect: { finance: -8, discipline: 8, reputation: -7 }, delayed: { finance: -8, reputation: -5 }, hiddenRisk: 15, log: "项目尾款被拖延到任期之后。" },
+    ],
+  },
+  {
+    stage: "late",
+    tag: "审计",
+    pressure: "离任复盘",
+    title: "离任审计预通知到了",
+    text: "审计组会重点看项目决策、资金流向和整改闭环。你可以把问题主动摊开，也可以赌他们查不到细处。",
+    choices: [
+      { label: "主动自查，把问题先整改", note: "有些账不好看，但主动补救还有机会。", cost: { energy: 10, capital: 4 }, effect: { discipline: -10, reputation: 6, finance: 2 }, risk: -6, log: "离任审计前主动自查并整改问题。" },
+      { label: "按要求准备材料，不额外发挥", note: "合规应对，但不主动揭短。", cost: { energy: 5 }, effect: { discipline: -2, capital: 2 }, log: "按离任审计要求准备材料。" },
+      { label: "找人打听审计重点，避重就轻", note: "也许能躲过一时，风险会更集中。", cost: { network: 5 }, effect: { discipline: 12, reputation: -6, capital: -3 }, hiddenRisk: 18, chance: { p: 0.3, pass: "审计重点暂时没有落到你的薄弱处。", fail: "审计组发现材料口径异常，扩大了核查范围。" }, log: "试图打听审计重点并避重就轻。" },
+    ],
+  },
+  {
+    stage: "any",
+    tag: "突发",
+    pressure: "极端天气",
+    title: "强对流天气打乱了所有安排",
+    text: "原定调研、会议、项目验收全部撞上应急值守。计划再周密，也要给突发留余量。",
+    choices: [
+      { label: "转入应急响应，压后非急事项", note: "计划乱了，但安全优先。", cost: { energy: 10, family: 5 }, effect: { people: 7, reputation: 4, discipline: -2 }, log: "转入应急响应，压后非急事项。" },
+      { label: "保重点应急，其他线上处理", note: "兼顾效率和底线。", cost: { energy: 7, capital: 2 }, effect: { people: 4, quality: 2 }, log: "重点应急事项现场处理，其余线上协调。" },
+      { label: "按原计划推进，基层自行应对", note: "日程没乱，风险给了基层。", cost: {}, effect: { people: -6, reputation: -5, discipline: 5 }, hiddenRisk: 8, log: "按原计划推进，基层独自应急。" },
+    ],
+  },
+  {
+    stage: "any",
+    tag: "网络",
+    pressure: "留言刷屏",
+    title: "政务号评论区突然被同一诉求刷屏",
+    text: "有真实问题，也有人借机带节奏。删评最快，核查最慢。",
+    choices: [
+      { label: "公开接诉，线下核查", note: "慢，但把问题和情绪都接住。", cost: { energy: 9, capital: 3 }, effect: { people: 7, reputation: 6, discipline: -2 }, log: "公开接诉并安排线下核查。" },
+      { label: "先置顶说明核查进度", note: "稳住节奏，再查事实。", cost: { energy: 5 }, effect: { reputation: 4, people: 3 }, log: "置顶说明核查进度。" },
+      { label: "批量删评，避免扩散", note: "页面清净了，信任更脏了。", cost: { capital: 1 }, effect: { reputation: -9, people: -5, discipline: 6 }, hiddenRisk: 12, log: "批量删除评论，舆情隐患加深。" },
+    ],
+  },
+  {
+    stage: "any",
+    tag: "群众",
+    pressure: "临时求助",
+    title: "一户困难家庭突然断了收入",
+    text: "按常规救助流程要等材料齐全，但眼前生活已经撑不住。特事特办也要守程序。",
+    choices: [
+      { label: "启动临时救助并补齐程序", note: "先托底，再把手续做严。", cost: { funds: 8, energy: 6 }, effect: { people: 9, reputation: 5, discipline: -2 }, log: "启动临时救助并补齐程序。" },
+      { label: "先由社区垫付，部门跟进", note: "能救急，但不能长期这么靠。", cost: { network: 3, energy: 4 }, effect: { people: 5, reputation: 2 }, log: "社区先行垫付救急，部门后续跟进。" },
+      { label: "等材料齐全再办理", note: "程序没错，人可能等不起。", cost: {}, effect: { people: -7, reputation: -6, discipline: 1 }, log: "困难家庭等待材料齐全后再办理救助。" },
+    ],
+  },
 ];
 
 const annualEvents = [
@@ -350,6 +590,41 @@ const incidentEvents = [
     effect: { funds: 6, network: 5, energy: 3 },
     effectText: "可用资金 +6，人脉资源 +5，精力体力 +3",
   },
+  {
+    title: "临时迎检通知压了下来",
+    text: "检查组明天到，几个真实问题还没完全整改。有人建议先把资料补齐、现场清一清，你知道真正整改没有捷径。",
+    condition: (s) => s.stats.quality >= 48 || s.hiddenRisk >= 24,
+    effect: { energy: -8, family: -4, discipline: 3 },
+    effectText: "精力体力 -8，家庭陪伴 -4，纪律风险 +3",
+  },
+  {
+    title: "政务系统突然故障",
+    text: "窗口排队的人越聚越多，后台技术人员还在排查。数字化能提效，也会在故障时把压力集中到一线。",
+    condition: (s) => s.stats.people >= 45,
+    effect: { people: -5, reputation: -5, energy: -5 },
+    effectText: "群众获得感 -5，长期口碑 -5，精力体力 -5",
+  },
+  {
+    title: "供应商在楼道里堵住了你",
+    text: "他说项目已经验收，尾款却迟迟没到。每一个'为民办事'的项目背后，都有合同、现金流和信用。",
+    condition: (s) => s.resources.funds <= 42 || s.stats.finance <= 42,
+    effect: { finance: -5, reputation: -4, capital: -3 },
+    effectText: "财政健康 -5，长期口碑 -4，组织信任 -3",
+  },
+  {
+    title: "家属被熟人绕着请托",
+    text: "对方没有直接找你，而是找到了家里人。你发现边界不是只在办公室里才需要守。",
+    condition: (s) => s.resources.network >= 50 || s.hiddenRisk >= 20,
+    effect: { discipline: 5, family: -5, reputation: -3 },
+    effectText: "纪律风险 +5，家庭陪伴 -5，长期口碑 -3",
+  },
+  {
+    title: "一名干部因为过劳请了长假",
+    text: "他是你最能依靠的骨干之一。工作往前冲的时候，队伍承受力也在被消耗。",
+    condition: (s) => s.serviceBurden >= 20 || s.resources.energy <= 38,
+    effect: { energy: -6, quality: -4, network: -4 },
+    effectText: "精力体力 -6，发展质量 -4，人脉资源 -4",
+  },
 ];
 
 let state = createBlankState();
@@ -368,6 +643,8 @@ function createBlankState() {
     serviceBurden: 0,
     luck: Math.random(),
     usedEventIds: [],
+    recentTags: [],
+    usedIncidentTitles: [],
     pendingIncident: null,
   };
 }
@@ -415,20 +692,40 @@ function currentEvent() {
 function pickEvent() {
   if (state.currentEvent) return state.currentEvent;
   const stage = stageOfTurn();
-  const pool = events.filter((event, index) => {
-    const stageMatch = event.stage === stage || event.stage === "any";
-    return stageMatch && !state.usedEventIds.includes(index);
-  });
-  const fallback = events.filter((event) => event.stage === stage || event.stage === "any");
-  const source = pool.length ? pool : fallback;
-  const picked = source[randomBetween(0, source.length - 1)];
+  const stageEvents = events
+    .map((event, index) => ({ event, index }))
+    .filter(({ event }) => event.stage === stage);
+  const anyEvents = events
+    .map((event, index) => ({ event, index }))
+    .filter(({ event }) => event.stage === "any");
+  const rollStageOnly = Math.random() < 0.72;
+  const primary = rollStageOnly ? stageEvents : [...stageEvents, ...anyEvents];
+  const secondary = rollStageOnly ? [...stageEvents, ...anyEvents] : stageEvents;
+  const source =
+    filterEventPool(primary).length ? filterEventPool(primary) :
+    filterEventPool(secondary).length ? filterEventPool(secondary) :
+    primary.filter(({ index }) => !state.usedEventIds.includes(index)).length ? primary.filter(({ index }) => !state.usedEventIds.includes(index)) :
+    secondary.length ? secondary :
+    events.map((event, index) => ({ event, index }));
+  const pickedItem = source[randomBetween(0, source.length - 1)];
+  const picked = pickedItem.event;
   state.currentEvent = picked;
   return picked;
+}
+
+function filterEventPool(pool) {
+  return pool.filter(({ event, index }) => {
+    const unused = !state.usedEventIds.includes(index);
+    const tagFresh = !state.recentTags.includes(event.tag);
+    return unused && tagFresh;
+  });
 }
 
 function markEventUsed(event) {
   const index = events.indexOf(event);
   if (index >= 0) state.usedEventIds.push(index);
+  state.recentTags.unshift(event.tag);
+  state.recentTags = state.recentTags.slice(0, 4);
 }
 
 function turnLabel() {
@@ -596,12 +893,13 @@ function maybeRandomIncident() {
   const triggerRate = Math.min(0.58, 0.12 + stageBonus + burdenRate + riskRate + lowResourceRate);
   if (Math.random() >= triggerRate) return;
 
-  const pool = incidentEvents.filter((incident) => incident.condition(state));
+  const pool = incidentEvents.filter((incident) => incident.condition(state) && !state.usedIncidentTitles.includes(incident.title));
   if (!pool.length) return;
   const incident = pool[randomBetween(0, pool.length - 1)];
   applyDelta(incident.effect);
   state.serviceBurden = clamp(state.serviceBurden + 4);
   state.pendingIncident = incident;
+  state.usedIncidentTitles.push(incident.title);
   state.log.unshift(`意外事件：${incident.title}`);
 }
 
